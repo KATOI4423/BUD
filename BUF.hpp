@@ -369,6 +369,35 @@ namespace BUD
 		const rettype POW = std::pow(static_cast<rettype>(right.get_x()), static_cast<rettype>(left.get_x()));
 		return BUD<rettype>(POW, (std::log(right.get_x()) * left.get_dx() + right.get_dx() * left.get_x() / right.get_x()) * POW);
 	}
+
+	/**
+	 * @brief namespaceをtemplateで擬似的に使用するための構造体
+	 * @details ex) template <typename namespace_struct>
+	 *              func(){ namespace_struct::specity_func(); }
+	 */
+	template <Arithmetic Type>
+	struct BUD_Space {
+		static BUD<Type> (*sqrt)(const BUD<Type> &bud) = BUD<Type>::sqrt;
+		static BUD<Type> (*cbrt)(const BUD<Type> &bud) = BUD<Type>::cbrt;
+		static BUD<Type> (*sin)(const BUD<Type> &bud) = BUD<Type>::sin;
+		static BUD<Type> (*cos)(const BUD<Type> &bud) = BUD<Type>::cos;
+		static BUD<Type> (*tan)(const BUD<Type> &bud) = BUD<Type>::tan;
+		static BUD<Type> (*asin)(const BUD<Type> &bud) = BUD<Type>::asin;
+		static BUD<Type> (*acos)(const BUD<Type> &bud) = BUD<Type>::acos;
+		static BUD<Type> (*atan)(const BUD<Type> &bud) = BUD<Type>::atan;
+		static BUD<Type> (*sinh)(const BUD<Type> &bud) = BUD<Type>::sinh;
+		static BUD<Type> (*cosh)(const BUD<Type> &bud) = BUD<Type>::cosh;
+		static BUD<Type> (*tanh)(const BUD<Type> &bud) = BUD<Type>::tanh;
+		static BUD<Type> (*asinh)(const BUD<Type> &bud) = BUD<Type>::asinh;
+		static BUD<Type> (*acosh)(const BUD<Type> &bud) = BUD<Type>::acosh;
+		static BUD<Type> (*atanh)(const BUD<Type> &bud) = BUD<Type>::atanh;
+		static BUD<Type> (*exp)(const BUD<Type> &bud) = BUD<Type>::exp;
+		static BUD<Type> (*exp2)(const BUD<Type> &bud) = BUD<Type>::exp2;
+		static BUD<Type> (*expm1)(const BUD<Type> &bud) = BUD<Type>::expm1;
+		static BUD<Type> (*log)(const BUD<Type> &bud) = BUD<Type>::log;
+		static BUD<Type> (*log10)(const BUD<Type> &bud) = BUD<Type>::log10;
+		static BUD<std::common_type_t<Type, Type>> (*pow)(const BUD<Type> &right, const BUD<Type> &left) = BUD<Type>::pow;
+	};
 }
 
 #endif //__BOTTUM_UP_DIFFERENCE_HPP__
