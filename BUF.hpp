@@ -195,6 +195,9 @@ namespace BUD
 	BUD<std::common_type_t<Type, type>> operator/(const BUD<Type> &left, const BUD<type> &right) { return BUD<std::common_type_t<Type, type>>(left) /= right; }
 
 	template <Arithmetic Type, Arithmetic type>
+	BUD<std::common_type_t<Type, type>> operator^(const BUD<Type> &left, const BUD<type> &right) { return pow(left, right); }
+
+	template <Arithmetic Type, Arithmetic type>
 	BUD<std::common_type_t<Type, type>> operator+(const BUD<Type> &left, const type &right) { return BUD<std::common_type_t<Type, type>>(left) += right; }
 
 	template <Arithmetic Type, Arithmetic type>
@@ -207,6 +210,9 @@ namespace BUD
 	BUD<std::common_type_t<Type, type>> operator/(const BUD<Type> &left, const type &right) { return BUD<std::common_type_t<Type, type>>(left) /= right; }
 
 	template <Arithmetic Type, Arithmetic type>
+	BUD<std::common_type_t<Type, type>> operator^(const BUD<Type> &left, const type &right) { return pow(left, BUD<std::common_type_t<Type, type>>(right)); }
+
+	template <Arithmetic Type, Arithmetic type>
 	BUD<std::common_type_t<Type, type>> operator+(const Type &left, const BUD<type> &right) { return BUD<std::common_type_t<Type, type>>(left) += right; }
 
 	template <Arithmetic Type, Arithmetic type>
@@ -217,6 +223,9 @@ namespace BUD
 
 	template <Arithmetic Type, Arithmetic type>
 	BUD<std::common_type_t<Type, type>> operator/(const Type &left, const BUD<type> &right) { return BUD<std::common_type_t<Type, type>>(left) /= right; }
+
+	template <Arithmetic Type, Arithmetic type>
+	BUD<std::common_type_t<Type, type>> operator^(const Type &left, const BUD<type> &right) { return pow(BUD<std::common_type_t<Type, type>>(left), right); }
 
 	template <Arithmetic Type>
 	BUD<Type> sqrt(const BUD<Type> &bud)
