@@ -11,8 +11,7 @@
 namespace BottomUpDiff
 {
 	template<typename T>
-	concept Arithmetic = std::is_arithmetic_v<T>
-		|| requires(T t){ typename std::enable_if_t< std::is_same_v<T, std::complex<typename T::value_type>> >; };
+	concept Arithmetic = std::is_arithmetic_v<T> || std::is_same_v<T, std::complex<typename T::value_type>>;
 
 	template <Arithmetic Type>
 	class BUD
