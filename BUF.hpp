@@ -266,7 +266,7 @@ namespace BottomUpDiff
 	template <Arithmetic Type>
 	BUD<Type> tan(const BUD<Type> &bud)
 	{
-		Type COS = std::cos(bud.x());
+		Type COS = std::cos(bud.get_x());
 		return BUD<Type>(std::tan(bud.get_x()),
 		                 bud.get_dx() / (COS * COS));
 	}
@@ -289,7 +289,7 @@ namespace BottomUpDiff
 	BUD<Type> atan(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::atan(bud.get_x()),
-		                 bud.get_dX() / (1.0 + bud.get_x() * bud.get_x()));
+		                 bud.get_dx() / (1.0 + bud.get_x() * bud.get_x()));
 	}
 
 	template <Arithmetic Type>
