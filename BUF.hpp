@@ -53,7 +53,7 @@ namespace BottomUpDiff
 
 		template <Arithmetic type>
 		requires std::is_convertible_v<type, Type>
-		BUD<Type> operator=(const BUD<type> &bud) &
+		BUD<Type> operator=(const BUD<type> &bud) & noexcept
 		{
 			this->x = static_cast<Type>(bud.get_x());
 			this->dx = static_cast<Type>(bud.get_dx());
