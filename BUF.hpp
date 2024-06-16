@@ -67,6 +67,15 @@ namespace BottomUpDiff
 			return *this;
 		}
 
+		BUD<Type> operator=(BUD<Type> &&bud) & noexcept
+		{
+			if (this != &bud) {
+				this->x = std::move(bud.x);
+				this->dx = std::move(bud.dx);
+			}
+			return *this;
+		}
+
 		template <Arithmetic type>
 		requires std::is_convertible_v<type, Type>
 		BUD<Type> operator=(const type &right) & noexcept
