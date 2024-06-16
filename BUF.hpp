@@ -8,7 +8,7 @@
 #include <iostream>
 #include <type_traits>
 
-namespace BUD
+namespace BottomUpDiff
 {
 	template<typename T>
 	concept Arithmetic = std::is_arithmetic_v<T>
