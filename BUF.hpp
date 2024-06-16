@@ -370,26 +370,45 @@ namespace BottomUpDiff
 	 */
 	template <Arithmetic Type>
 	struct BUD_Space {
-		static BUD<Type> (*sqrt)(const BUD<Type> &bud) = BUD<Type>::sqrt;
-		static BUD<Type> (*cbrt)(const BUD<Type> &bud) = BUD<Type>::cbrt;
-		static BUD<Type> (*sin)(const BUD<Type> &bud) = BUD<Type>::sin;
-		static BUD<Type> (*cos)(const BUD<Type> &bud) = BUD<Type>::cos;
-		static BUD<Type> (*tan)(const BUD<Type> &bud) = BUD<Type>::tan;
-		static BUD<Type> (*asin)(const BUD<Type> &bud) = BUD<Type>::asin;
-		static BUD<Type> (*acos)(const BUD<Type> &bud) = BUD<Type>::acos;
-		static BUD<Type> (*atan)(const BUD<Type> &bud) = BUD<Type>::atan;
-		static BUD<Type> (*sinh)(const BUD<Type> &bud) = BUD<Type>::sinh;
-		static BUD<Type> (*cosh)(const BUD<Type> &bud) = BUD<Type>::cosh;
-		static BUD<Type> (*tanh)(const BUD<Type> &bud) = BUD<Type>::tanh;
-		static BUD<Type> (*asinh)(const BUD<Type> &bud) = BUD<Type>::asinh;
-		static BUD<Type> (*acosh)(const BUD<Type> &bud) = BUD<Type>::acosh;
-		static BUD<Type> (*atanh)(const BUD<Type> &bud) = BUD<Type>::atanh;
-		static BUD<Type> (*exp)(const BUD<Type> &bud) = BUD<Type>::exp;
-		static BUD<Type> (*exp2)(const BUD<Type> &bud) = BUD<Type>::exp2;
-		static BUD<Type> (*expm1)(const BUD<Type> &bud) = BUD<Type>::expm1;
-		static BUD<Type> (*log)(const BUD<Type> &bud) = BUD<Type>::log;
-		static BUD<Type> (*log10)(const BUD<Type> &bud) = BUD<Type>::log10;
-		static BUD<std::common_type_t<Type, Type>> (*pow)(const BUD<Type> &right, const BUD<Type> &left) = BUD<Type>::pow;
+		using ret_type = BUD<Type>;
+
+		static BUD<Type> _sqrt(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sqrt<Type>(args[0]); }
+		static BUD<Type> _cbrt(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cbrt<Type>(args[0]); }
+		static BUD<Type> _sin(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sin<Type>(args[0]); }
+		static BUD<Type> _cos(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cos<Type>(args[0]); }
+		static BUD<Type> _tan(const std::vector<BUD<Type>> &args){ return BottomUpDiff::tan<Type>(args[0]); }
+		static BUD<Type> _asin(const std::vector<BUD<Type>> &args){ return BottomUpDiff::asin<Type>(args[0]); }
+		static BUD<Type> _acos(const std::vector<BUD<Type>> &args){ return BottomUpDiff::acos<Type>(args[0]); }
+		static BUD<Type> _atan(const std::vector<BUD<Type>> &args){ return BottomUpDiff::atan<Type>(args[0]); }
+		static BUD<Type> _sinh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sinh<Type>(args[0]); }
+		static BUD<Type> _cosh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cosh<Type>(args[0]); }
+		static BUD<Type> _tanh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::tanh<Type>(args[0]); }
+		static BUD<Type> _asinh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::asinh<Type>(args[0]); }
+		static BUD<Type> _acosh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::acosh<Type>(args[0]); }
+		static BUD<Type> _atanh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::atanh<Type>(args[0]); }
+		static BUD<Type> _exp(const std::vector<BUD<Type>> &args){ return BottomUpDiff::exp<Type>(args[0]); }
+		static BUD<Type> _log(const std::vector<BUD<Type>> &args){ return BottomUpDiff::log<Type>(args[0]); }
+		static BUD<Type> _log10(const std::vector<BUD<Type>> &args){ return BottomUpDiff::log10<Type>(args[0]); }
+		static BUD<Type> _pow(const std::vector<BUD<Type>> &args){ return BottomUpDiff::pow<Type>(args[0], args[1]); }
+
+		static constexpr BUD<Type> (*sqrt)(const std::vector<BUD<Type>>&) = &_sqrt;
+		static constexpr BUD<Type> (*cbrt)(const std::vector<BUD<Type>>&) = &_cbrt;
+		static constexpr BUD<Type> (*sin)(const std::vector<BUD<Type>>&) = &_sin;
+		static constexpr BUD<Type> (*cos)(const std::vector<BUD<Type>>&) = &_cos;
+		static constexpr BUD<Type> (*tan)(const std::vector<BUD<Type>>&) = &_tan;
+		static constexpr BUD<Type> (*asin)(const std::vector<BUD<Type>>&) = &_asin;
+		static constexpr BUD<Type> (*acos)(const std::vector<BUD<Type>>&) = &_acos;
+		static constexpr BUD<Type> (*atan)(const std::vector<BUD<Type>>&) = &_atan;
+		static constexpr BUD<Type> (*sinh)(const std::vector<BUD<Type>>&) = &_sinh;
+		static constexpr BUD<Type> (*cosh)(const std::vector<BUD<Type>>&) = &_cosh;
+		static constexpr BUD<Type> (*tanh)(const std::vector<BUD<Type>>&) = &_tanh;
+		static constexpr BUD<Type> (*asinh)(const std::vector<BUD<Type>>&) = &_asinh;
+		static constexpr BUD<Type> (*acosh)(const std::vector<BUD<Type>>&) = &_acosh;
+		static constexpr BUD<Type> (*atanh)(const std::vector<BUD<Type>>&) = &_atanh;
+		static constexpr BUD<Type> (*exp)(const std::vector<BUD<Type>>&) = &_exp;
+		static constexpr BUD<Type> (*log)(const std::vector<BUD<Type>>&) = &_log;
+		static constexpr BUD<Type> (*log10)(const std::vector<BUD<Type>>&) = &_log10;
+		static constexpr BUD<Type> (*pow)(const std::vector<BUD<Type>>&) = &_pow;
 	};
 }
 
