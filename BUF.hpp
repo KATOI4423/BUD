@@ -343,21 +343,6 @@ namespace BottomUpDiff
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> exp2(const BUD<Type> &bud)
-	{
-		const Type LOG2 = std::log(static_cast<Type>(2.0));
-		Type EXP2 = std::exp2(bud.get_x());
-		return BUD<Type>(EXP2, bud.get_dx() * LOG2 * EXP2);
-	}
-
-	template <Arithmetic Type>
-	BUD<Type> expm1(const BUD<Type> &bud)
-	{
-		Type EXPM1 = std::expm1(bud.get_x());
-		return BUD<Type>(EXPM1, bud.get_dx() * (EXPM1 + 1.0));
-	}
-
-	template <Arithmetic Type>
 	BUD<Type> log(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::log(bud.get_x()), bud.get_dx() / bud.get_x());
