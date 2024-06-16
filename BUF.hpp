@@ -372,24 +372,24 @@ namespace BottomUpDiff
 	struct BUD_Space {
 		using ret_type = BUD<Type>;
 
-		static BUD<Type> _sqrt(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sqrt<Type>(args[0]); }
-		static BUD<Type> _cbrt(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cbrt<Type>(args[0]); }
-		static BUD<Type> _sin(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sin<Type>(args[0]); }
-		static BUD<Type> _cos(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cos<Type>(args[0]); }
-		static BUD<Type> _tan(const std::vector<BUD<Type>> &args){ return BottomUpDiff::tan<Type>(args[0]); }
-		static BUD<Type> _asin(const std::vector<BUD<Type>> &args){ return BottomUpDiff::asin<Type>(args[0]); }
-		static BUD<Type> _acos(const std::vector<BUD<Type>> &args){ return BottomUpDiff::acos<Type>(args[0]); }
-		static BUD<Type> _atan(const std::vector<BUD<Type>> &args){ return BottomUpDiff::atan<Type>(args[0]); }
-		static BUD<Type> _sinh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sinh<Type>(args[0]); }
-		static BUD<Type> _cosh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cosh<Type>(args[0]); }
-		static BUD<Type> _tanh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::tanh<Type>(args[0]); }
-		static BUD<Type> _asinh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::asinh<Type>(args[0]); }
-		static BUD<Type> _acosh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::acosh<Type>(args[0]); }
-		static BUD<Type> _atanh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::atanh<Type>(args[0]); }
-		static BUD<Type> _exp(const std::vector<BUD<Type>> &args){ return BottomUpDiff::exp<Type>(args[0]); }
-		static BUD<Type> _log(const std::vector<BUD<Type>> &args){ return BottomUpDiff::log<Type>(args[0]); }
-		static BUD<Type> _log10(const std::vector<BUD<Type>> &args){ return BottomUpDiff::log10<Type>(args[0]); }
-		static BUD<Type> _pow(const std::vector<BUD<Type>> &args){ return BottomUpDiff::pow<Type>(args[0], args[1]); }
+		static constexpr BUD<Type> _sqrt(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sqrt<Type>(args[0]); }
+		static constexpr BUD<Type> _cbrt(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cbrt<Type>(args[0]); }
+		static constexpr BUD<Type> _sin(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sin<Type>(args[0]); }
+		static constexpr BUD<Type> _cos(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cos<Type>(args[0]); }
+		static constexpr BUD<Type> _tan(const std::vector<BUD<Type>> &args){ return BottomUpDiff::tan<Type>(args[0]); }
+		static constexpr BUD<Type> _asin(const std::vector<BUD<Type>> &args){ return BottomUpDiff::asin<Type>(args[0]); }
+		static constexpr BUD<Type> _acos(const std::vector<BUD<Type>> &args){ return BottomUpDiff::acos<Type>(args[0]); }
+		static constexpr BUD<Type> _atan(const std::vector<BUD<Type>> &args){ return BottomUpDiff::atan<Type>(args[0]); }
+		static constexpr BUD<Type> _sinh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sinh<Type>(args[0]); }
+		static constexpr BUD<Type> _cosh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cosh<Type>(args[0]); }
+		static constexpr BUD<Type> _tanh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::tanh<Type>(args[0]); }
+		static constexpr BUD<Type> _asinh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::asinh<Type>(args[0]); }
+		static constexpr BUD<Type> _acosh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::acosh<Type>(args[0]); }
+		static constexpr BUD<Type> _atanh(const std::vector<BUD<Type>> &args){ return BottomUpDiff::atanh<Type>(args[0]); }
+		static constexpr BUD<Type> _exp(const std::vector<BUD<Type>> &args){ return BottomUpDiff::exp<Type>(args[0]); }
+		static constexpr BUD<Type> _log(const std::vector<BUD<Type>> &args){ return BottomUpDiff::log<Type>(args[0]); }
+		static constexpr BUD<Type> _log10(const std::vector<BUD<Type>> &args){ return BottomUpDiff::log10<Type>(args[0]); }
+		static constexpr BUD<Type> _pow(const std::vector<BUD<Type>> &args){ return BottomUpDiff::pow<Type>(args[0], args[1]); }
 
 		static constexpr BUD<Type> (*sqrt)(const std::vector<BUD<Type>>&) = &_sqrt;
 		static constexpr BUD<Type> (*cbrt)(const std::vector<BUD<Type>>&) = &_cbrt;
