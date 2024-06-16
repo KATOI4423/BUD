@@ -1,5 +1,5 @@
-#ifndef __BOTTUM_UP_DIFFERENCE_HPP__
-#define __BOTTUM_UP_DIFFERENCE_HPP__
+#ifndef __BOTTOM_UP_DIFFERENCE_HPP__
+#define __BOTTOM_UP_DIFFERENCE_HPP__
 
 #include <cmath>
 #include <concepts>
@@ -412,4 +412,4 @@ namespace BottomUpDiff
 	};
 }
 
-#endif //__BOTTUM_UP_DIFFERENCE_HPP__
+#endif //__BOTTOM_UP_DIFFERENCE_HPP__
