@@ -370,7 +370,7 @@ namespace BottomUpDiff
 	 */
 	template <Arithmetic Type>
 	struct BUD_Space {
-		using ret_type = BUD<Type>;
+		using value_type = typename BUD<Type>;
 
 		static constexpr BUD<Type> _sqrt(const std::vector<BUD<Type>> &args){ return BottomUpDiff::sqrt<Type>(args[0]); }
 		static constexpr BUD<Type> _cbrt(const std::vector<BUD<Type>> &args){ return BottomUpDiff::cbrt<Type>(args[0]); }
