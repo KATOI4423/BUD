@@ -21,6 +21,8 @@ namespace BottomUpDiff
 		Type dx; /* partial derivative value */
 
 	public:
+		using value_type = Type;
+
 		constexpr BUD(const Type &x = 0, const Type &dx = 0) noexcept
 			: x(x), dx(dx) {};
 
