@@ -21,12 +21,12 @@ namespace BottomUpDiff
 		Type dx; /* partial derivative value */
 
 	public:
-		explicit constexpr BUD(const Type &x = 0, const Type &dx = 0) noexcept
+		constexpr BUD(const Type &x = 0, const Type &dx = 0) noexcept
 			: x(x), dx(dx) {};
 
 		template <Arithmetic type>
 		requires std::is_convertible_v<type, Type>
-		explicit constexpr BUD(const BUD<type> &bud) noexcept
+		constexpr BUD(const BUD<type> &bud) noexcept
 			: x(static_cast<Type>(bud.get_x()))
 			, dx(static_cast<Type>(bud.get_dx())) {};
 
