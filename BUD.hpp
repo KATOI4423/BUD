@@ -372,4 +372,64 @@ namespace BottomUpDiff
 	}
 }
 
+/** @brief overload std function */
+namespace std
+{
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> sqrt(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::sqrt(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> cbrt(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::cbrt(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> sin(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::sin(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> cos(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::cos(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> tan(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::tan(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> asin(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::asin(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> acos(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::acos(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> atan(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::atan(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> sinh(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::sinh(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> cosh(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::cosh(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> tanh(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::tanh(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> asinh(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::asinh(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> acosh(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::acosh(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> atanh(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::atanh(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> exp(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::exp(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> log(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::log(bud); }
+
+	template <Arithmetic Type>
+	inline BottomUpDiff::BUD<Type> log10(const BottomUpDiff::BUD<Type> &bud) { return BottomUpDiff::log10(bud); }
+
+	template <Arithmetic Type, Arithmetic type>
+	inline BottomUpDiff::BUD<std::common_type_t<Type, type>> pow(const BottomUpDiff::BUD<Type> &right, const BottomUpDiff::BUD<type> &left)
+	{ return BottomUpDiff::pow(right, left); }
+
+}
+
 #endif //__BOTTOM_UP_DIFFERENCE_HPP__
