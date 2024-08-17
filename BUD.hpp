@@ -24,8 +24,13 @@ namespace BottomUpDiff
 	public:
 		using value_type = Type;
 
-		constexpr BUD(const Type &x = 0, const Type &dx = 0) noexcept
-			: x(x), dx(dx) {}
+		constexpr BUD() noexcept = default;
+
+		template <Arithmetic type>
+		requires std::is_convertible_v<type, Type>
+		constexpr BUD(const type &x = 0, const type &dx = 0) noexcept
+			: x(static_cast<Type>(x))
+			, dx(static_cast<Type>(dx)) {}
 
 		template <Arithmetic type>
 		requires std::is_convertible_v<type, Type>
