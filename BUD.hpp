@@ -244,35 +244,35 @@ namespace BottomUpDiff
 	auto operator^(const Type &left, const BUD<type> &right) { return pow(BUD<std::common_type_t<Type, type>>(left), right); }
 
 	template <Arithmetic Type>
-	BUD<Type> sqrt(const BUD<Type> &bud)
+	inline BUD<Type> sqrt(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::sqrt(bud.get_x()),
 		                 0.5 * bud.get_dx() / std::sqrt(bud.get_x()));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> cbrt(const BUD<Type> &bud)
+	inline BUD<Type> cbrt(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::cbrt(bud.get_x()),
 		                 bud.get_dx() * std::cbrt(bud.get_x()) / (3.0 * bud.get_x()));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> sin(const BUD<Type> &bud)
+	inline BUD<Type> sin(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::sin(bud.get_x()),
 		                 std::cos(bud.get_x()) * bud.get_dx());
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> cos(const BUD<Type> &bud)
+	inline BUD<Type> cos(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::cos(bud.get_x()),
 		                 -std::sin(bud.get_x()) * bud.get_dx());
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> tan(const BUD<Type> &bud)
+	inline BUD<Type> tan(const BUD<Type> &bud)
 	{
 		Type COS = std::cos(bud.get_x());
 		return BUD<Type>(std::tan(bud.get_x()),
@@ -280,42 +280,42 @@ namespace BottomUpDiff
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> asin(const BUD<Type> &bud)
+	inline BUD<Type> asin(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::asin(bud.get_x()),
 		                 bud.get_dx() / std::sqrt(1.0 - bud.get_x() * bud.get_x()));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> acos(const BUD<Type> &bud)
+	inline BUD<Type> acos(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::acos(bud.get_x()),
 		                 -bud.get_dx() / std::sqrt(1.0 - bud.get_x() * bud.get_x()));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> atan(const BUD<Type> &bud)
+	inline BUD<Type> atan(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::atan(bud.get_x()),
 		                 bud.get_dx() / (1.0 + bud.get_x() * bud.get_x()));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> sinh(const BUD<Type> &bud)
+	inline BUD<Type> sinh(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::sinh(bud.get_x()),
 		                 bud.get_dx() * std::cosh(bud.get_x()));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> cosh(const BUD<Type> &bud)
+	inline BUD<Type> cosh(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::cosh(bud.get_x()),
 		                 bud.get_dx() * std::sinh(bud.get_x()));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> tanh(const BUD<Type> &bud)
+	inline BUD<Type> tanh(const BUD<Type> &bud)
 	{
 		Type COSH = std::cosh(bud.get_x());
 		return BUD<Type>(std::tanh(bud.get_x()),
@@ -323,48 +323,48 @@ namespace BottomUpDiff
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> asinh(const BUD<Type> &bud)
+	inline BUD<Type> asinh(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::asinh(bud.get_x()),
 		                 bud.get_dx() / std::sqrt(bud.get_x() * bud.get_x() + 1.0));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> acosh(const BUD<Type> &bud)
+	inline BUD<Type> acosh(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::acosh(bud.get_x()),
 		                 bud.get_dx() / std::sqrt(bud.get_x() * bud.get_x() - 1.0));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> atanh(const BUD<Type> &bud)
+	inline BUD<Type> atanh(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::atanh(bud.get_x()),
 		                 bud.get_dx() / (1.0 - bud.get_x() * bud.get_x()));
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> exp(const BUD<Type> &bud)
+	inline BUD<Type> exp(const BUD<Type> &bud)
 	{
 		Type EXP = std::exp(bud.get_x());
 		return BUD<Type>(EXP, bud.get_dx() * EXP);
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> log(const BUD<Type> &bud)
+	inline BUD<Type> log(const BUD<Type> &bud)
 	{
 		return BUD<Type>(std::log(bud.get_x()), bud.get_dx() / bud.get_x());
 	}
 
 	template <Arithmetic Type>
-	BUD<Type> log10(const BUD<Type> &bud)
+	inline BUD<Type> log10(const BUD<Type> &bud)
 	{
 		const Type LOG10e = 1.0 / std::log(static_cast<Type>(10.0));
 		return LOG10e * log(bud);
 	}
 
 	template <Arithmetic Type, Arithmetic type>
-	BUD<std::common_type_t<Type, type>> pow(const BUD<Type> &right, const BUD<type> &left)
+	inline BUD<std::common_type_t<Type, type>> pow(const BUD<Type> &right, const BUD<type> &left)
 	{
 		using rettype = std::common_type_t<Type, type>;
 		const rettype POW = std::pow(static_cast<rettype>(right.get_x()), static_cast<rettype>(left.get_x()));
