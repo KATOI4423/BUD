@@ -22,8 +22,6 @@ namespace BottomUpDiff
 		Type dx; /* partial derivative value */
 
 	public:
-		using value_type = Type;
-
 		constexpr BUD() noexcept = default;
 
 		template <Arithmetic type1, Arithmetic type2>
